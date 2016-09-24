@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Pizza Form</title>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="formcalculations.js"></script>
+    <link href="my.css" rel="stylesheet" type="text/css" />
+	<!--Bootstrap style sheet-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!--Font Awsome style sheet-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body onload='hideTotal()'>
+<div id="nav"><a href="home.html">Home</a> | <a href="Aboutme.html">About Me</a> |<a href="order.html">Order Here</a> | <a href="Contact.html">Contact</a> |  <a href="photos.html">My Photos</a> | <a href="videos.html">My Videos</a></div>
+    <div id="wrap">
+        <form action="order.html" id="pizzaform" onsubmit="return false;">
+        <div>
+            <div class="cont_order">
+               <fieldset>
+                <legend>Make your PIZZA!</legend>
+                <label >Size Of the PIZZA</label><br/>
+                <label class='radiolabel'><input type="radio"  name="selectedpizza" value="SMALL" onclick="calculateTotal()" />SMALL -  serves 8 people ($15)</label><br/>
+                <label class='radiolabel'><input type="radio"  name="selectedpizza" value="MEDIUM" onclick="calculateTotal()" />MEDIUM - serves 12 people ($20)</label><br/>
+                <label class='radiolabel'><input type="radio"  name="selectedpizza" value="LARGE" onclick="calculateTotal()" />LARGE - serves 16 people($25)</label><br/>
+                
+                <br/>
+                <label >TOPPINGS</label>
+         
+                <select id="toppings" name='toppings' onchange="calculateTotal()">
+                <option value="None">Select Filling</option>
+                <option value="Lemon">Lemon($5)</option>
+                <option value="Custard">Capsicum($5)</option>
+                <option value="Fudge">Fudge($7)</option>
+                <option value="Mocha">Tomatos($8)</option>
+                <option value="Raspberry">Raspberry($10)</option>
+                <option value="Pineapple">Pineapple($5)</option>
+                <option value="Dobash">Dobash($9)</option>
+                <option value="Mint">Chicken($5)</option>
+                <option value="Cherry">Cherry($5)</option>
+                <option value="Apricot">Apricot($8)</option>
+                <option value="Buttercream">Green Olives($7)</option>
+                <option value="Chocolate Mousse">Roasted Red Peppers($12)</option>
+               </select>
+                <br/>
+                <p>
+                <label for='includeranch' class="inlinelabel">Include RANCH($5)</label>
+               <input type="checkbox" id="includeranch" name='includeranch' onclick="calculateTotal()" /><br/>
+               </p>
+               
+                <p>
+                <label class="inlinelabel" >Include Soft Drinks </label><br/>
+                <label class='radiolabel'><input type="checkbox"  name="selectedpizz" value="Pepsi" onclick="calculateTotal()" />Pepsi($5)</label>
+                <label class='radiolabel'><input type="checkbox"  name="selectedpizz" value="Sprite" onclick="calculateTotal()" />Sprite($5)</label><br/>
+                
+                </p>
+                <div id="totalPrice"></div>
+                
+                </fieldset>
+            </div>
+            
+        	<div class="cont_details">
+            	<fieldset>
+                <legend>Contact Details</legend>
+                <label for='name'>Name</label>
+                <input type="text" id="name" name='name' />
+                <br/>
+                <label for='address'>Address</label>
+                <input type="text" id="address" name='address' />
+                <br/>
+                <label for='phonenumber'>Phone Number</label>
+                <input type="text"  id="phonenumber" name='phonenumber'/>
+                <br/>
+                </fieldset>
+            </div>
+            <input type='submit' id='submit' value='Submit' onclick="calculateTotal()" />
+        </div>  
+       </form>
+	</div><!--End of wrap-->
+
+</body>
+</html>
